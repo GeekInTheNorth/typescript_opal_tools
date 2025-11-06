@@ -53,5 +53,6 @@ export class GreetingTools {
   }
 }
 
-// Instantiate the class to register the tools
-new GreetingTools();
+// Register the greeting tools by instantiating the class
+// This triggers the @tool decorator which registers the methods with the ToolsService
+const greetingTools = new GreetingTools();
