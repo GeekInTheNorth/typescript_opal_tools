@@ -1,0 +1,207 @@
+# Opal Tools API Tests
+# Test file for the Opal Tools service endpoints
+
+### Variables
+@baseUrl = http://localhost:3000
+
+### 1. Discovery Endpoint - Get all available tools
+GET {{baseUrl}}/discovery
+Content-Type: application/json
+
+###
+
+### 2. Greeting Tool - Basic test with required parameter
+POST {{baseUrl}}/tools/greeting
+Content-Type: application/json
+
+{
+  "name": "Alice"
+}
+
+###
+
+### 3. Greeting Tool - With specific language (Spanish)
+POST {{baseUrl}}/tools/greeting
+Content-Type: application/json
+
+{
+  "name": "Carlos",
+  "language": "spanish"
+}
+
+###
+
+### 4. Greeting Tool - With specific language (French)
+POST {{baseUrl}}/tools/greeting
+Content-Type: application/json
+
+{
+  "name": "Marie",
+  "language": "french"
+}
+
+###
+
+### 5. Greeting Tool - With specific language (English)
+POST {{baseUrl}}/tools/greeting
+Content-Type: application/json
+
+{
+  "name": "John",
+  "language": "english"
+}
+
+###
+
+### 6. Today's Date Tool - Default format
+POST {{baseUrl}}/tools/todays-date
+Content-Type: application/json
+
+{}
+
+###
+
+### 7. Today's Date Tool - ISO format
+POST {{baseUrl}}/tools/todays-date
+Content-Type: application/json
+
+{
+  "format": "%Y-%m-%d"
+}
+
+###
+
+### 8. Today's Date Tool - Long format
+POST {{baseUrl}}/tools/todays-date
+Content-Type: application/json
+
+{
+  "format": "%B %d, %Y"
+}
+
+###
+
+### 9. Today's Date Tool - European format
+POST {{baseUrl}}/tools/todays-date
+Content-Type: application/json
+
+{
+  "format": "%d/%m/%Y"
+}
+
+###
+
+### 10. Today's Date Tool - Custom format (should default to ISO)
+POST {{baseUrl}}/tools/todays-date
+Content-Type: application/json
+
+{
+  "format": "%custom"
+}
+
+###
+
+### 11. Error Test - Greeting without required parameter
+POST {{baseUrl}}/tools/greeting
+Content-Type: application/json
+
+{}
+
+###
+
+### 12. Error Test - Invalid tool name
+POST {{baseUrl}}/tools/invalid-tool
+Content-Type: application/json
+
+{
+  "test": "value"
+}
+
+###
+
+### 13. Writing Prompt Tool - Completely random prompt
+POST {{baseUrl}}/tools/writing-prompt
+Content-Type: application/json
+
+{}
+
+###
+
+### 14. Writing Prompt Tool - Specific genre (Fantasy)
+POST {{baseUrl}}/tools/writing-prompt
+Content-Type: application/json
+
+{
+  "genre": "fantasy"
+}
+
+###
+
+### 15. Writing Prompt Tool - Specific theme (Mystery)
+POST {{baseUrl}}/tools/writing-prompt
+Content-Type: application/json
+
+{
+  "genre": "mystery",
+  "theme": "betrayal"
+}
+
+###
+
+### 16. Writing Prompt Tool - Beginner level short story
+POST {{baseUrl}}/tools/writing-prompt
+Content-Type: application/json
+
+{
+  "difficulty": "beginner",
+  "length": "short"
+}
+
+###
+
+### 17. Writing Prompt Tool - Advanced level long story
+POST {{baseUrl}}/tools/writing-prompt
+Content-Type: application/json
+
+{
+  "difficulty": "advanced",
+  "length": "long"
+}
+
+###
+
+### 18. Writing Prompt Tool - Sci-fi romance combination
+POST {{baseUrl}}/tools/writing-prompt
+Content-Type: application/json
+
+{
+  "genre": "sci-fi",
+  "theme": "love",
+  "difficulty": "intermediate",
+  "length": "medium"
+}
+
+###
+
+### 19. Writing Prompt Tool - Horror theme
+POST {{baseUrl}}/tools/writing-prompt
+Content-Type: application/json
+
+{
+  "genre": "horror",
+  "theme": "survival"
+}
+
+###
+
+### 20. Writing Prompt Tool - Historical drama
+POST {{baseUrl}}/tools/writing-prompt
+Content-Type: application/json
+
+{
+  "genre": "historical",
+  "theme": "sacrifice",
+  "difficulty": "advanced"
+}
+
+###
